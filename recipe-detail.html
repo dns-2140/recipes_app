@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe detail</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="global-container">
+      <div class="app">
+        <div class="recipe-detail">
+          <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> All Recipes</a
+          >
+          <h1 id="detail-title">Loading Recipe...</h1>
+          <img src="" alt="" id="detail-image" class="hero-image" />
+          <div class="recipe-meta">
+            <span id="detail-time"></span>
+            <span id="detail-servings"></span>
+          </div>
+          <div class="recipe-content">
+            <section class="ingredients">
+              <h2>Ingredients</h2>
+              <ul id="detail-ingredients"></ul>
+            </section>
+            <section class="instructions">
+              <h2>Instructions</h2>
+              <ol id="detail-instructions"></ol>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const recipeId = parseInt(urlParams.get('id'));
+      const API_URL = `https://dummyjson.com/recipes/${recipeId}`;
+
+      axios(API_URL).then((r) => {
+        const { data } = r;
+        console.log(data);
+        document.getElementById('detail-title').textContent = data.name;
+        document.getElementById('detail-image').src = data.image;
+        document.getElementById('detail-time').textContent =
+          data.cookTimeMinutes;
+
+        //Populate ingredients
+        const ingredientsList = document.getElementById('detail-ingredients');
+        data.ingredients.forEach((ingredient) => {
+          const li = document.createElement('li');
+          li.textContent = ingredient;
+          ingredientsList.appendChild(li);
+        });
+
+        //Populate instructins
+        const instructionsList = document.getElementById('detail-instructions');
+        data.instructions.forEach((step) => {
+          const li = document.createElement('li');
+          li.textContent = step;
+          instructionsList.appendChild(li);
+        });
+      });
+    </script>
+  </body>
+</html>

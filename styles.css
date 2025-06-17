@@ -1,0 +1,127 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-light: rgb(255, 248, 241);
+  --color-light-orange: #ffb267;
+  --color-orange: #ff8107;
+  --color-black: #0d0d0d;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--color-black);
+}
+
+.global-container {
+  min-height: 100vh;
+  background-color: var(--color-light);
+}
+
+.app {
+  padding: 6rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6rem;
+}
+
+.navbar .logo {
+  color: #ff8107;
+  font-size: 24px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-black);
+}
+
+.navbar ul li a {
+  color: var(--color-black);
+}
+
+h1 {
+  margin-bottom: 2rem;
+}
+.recipe-lists {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  list-style: none;
+  gap: 3rem;
+}
+
+.recipe-lists li {
+}
+
+.recipe-list {
+  height: 20rem;
+  display: flex;
+  align-items: flex-end;
+  border-radius: 16px;
+  padding: 1rem;
+  background-size: cover;
+  background-blend-mode: multiply;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.recipe-list:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.recipe-list .recipe-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--color-light);
+}
+
+.recipe-list .recipe-info .recipe-tags span {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 1rem;
+  padding: 0.5rem;
+  font-size: 0.75rem;
+}
+
+/*recipe-detail */
+.recipe-detail h1 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  color: var(--color-orange);
+}
+
+.recipe-detail img {
+  width: 32rem;
+  margin-bottom: 3rem;
+}
+.recipe-content,
+.instructions {
+  margin-top: 3rem;
+}
+.ingredients h2,
+.instructions h2 {
+  margin-bottom: 1rem;
+  color: var(--color-orange);
+}
+
+#detail-ingredients,
+#detail-instructions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
