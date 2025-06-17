@@ -10,7 +10,10 @@
   --color-light: rgb(255, 248, 241);
   --color-light-orange: #ffb267;
   --color-orange: #ff8107;
-  --color-black: #0d0d0d;
+  --color-light-gray: #f2dc8c;
+  --color-gray: #9e8b53;
+
+  --color-black: #1a0f00;
 }
 
 body {
@@ -73,15 +76,15 @@ h1 {
   padding: 1rem;
   background-size: cover;
   background-blend-mode: multiply;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(13, 13, 13, 0.4);
   transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(13, 13, 13, 0.1);
   cursor: pointer;
 }
 
 .recipe-list:hover {
   transform: scale(1.03);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 20px rgba(13, 13, 13, 0.2);
 }
 
 .recipe-list .recipe-info {
@@ -92,7 +95,7 @@ h1 {
 }
 
 .recipe-list .recipe-info .recipe-tags span {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(13, 13, 13, 0.4);
   border-radius: 1rem;
   padding: 0.5rem;
   font-size: 0.75rem;
@@ -124,4 +127,28 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+/* PAGINATION */
+.pagination {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.pagination > * {
+  border: 1px solid var(--color-gray);
+  background: transparant;
+  border-radius: 50%;
+  padding: 0.75rem;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.pagination > *:hover {
+  border: 1px solid var(--color-gray);
+  background-color: var(--color-light-gray);
+  border-radius: 50%;
+  padding: 0.75rem;
+  cursor: pointer;
 }
