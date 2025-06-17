@@ -54,6 +54,7 @@ function updateArrowButtons() {
 
 const updateFilter = (tag) => {
   globalState.search.filter = tag;
+  globalState.search.page = 1;
   fetchData();
 };
 
@@ -98,6 +99,8 @@ const updateDOM = () => {
   tagLists.innerHTML = `<li 
   class="tag-list ${globalState.search.filter === 'all' ? 'active' : ''}" 
   onclick="updateFilter('all')"
+  tabindex="0"
+  role="button"
    
   >
   all recipes
@@ -108,7 +111,8 @@ const updateDOM = () => {
       'beforeend',
       `<li class="tag-list ${
         globalState.search.filter === tag ? 'active' : ''
-      }" onclick="updateFilter('${tag}')">${tag}</li>`
+      }" onclick="updateFilter('${tag}')" tabindex="0"
+            role="button">${tag}</li>`
     );
   });
 };
