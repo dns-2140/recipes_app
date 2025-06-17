@@ -65,6 +65,37 @@ a {
 h1 {
   margin-bottom: 2rem;
 }
+
+/* TAGS */
+.tag-lists {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.tag-list {
+  background-color: white;
+  padding: 0.25rem 1rem;
+  /* border: 1px solid var(--color-orange); */
+  color: var(--color-dark);
+  border-radius: 8px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.tag-list.active {
+  background: var(--color-orange);
+  color: white;
+}
+
+.recipe-lists {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  list-style: none;
+  gap: 3rem;
+}
+
 .recipe-lists {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
