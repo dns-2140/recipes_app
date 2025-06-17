@@ -28,7 +28,7 @@ function updateArrowButtons() {
   // Disable right arrow on last page
   rightArrowBtn.disabled =
     globalState.search.page === globalState.search.totalPage ||
-    globalState.search.page !== 'all';
+    globalState.search.filter !== 'all';
 
   // Optional: Add visual styling for disabled state
   if (leftArrowBtn.disabled) {
