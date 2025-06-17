@@ -57,6 +57,9 @@ const updateDOM = () => {
       `<li 
         class="recipe-list" 
         style="background-image: url('${recipe.image}')"
+        title="${recipe.name}"
+        tabindex="0" 
+        role="button"
         onclick="window.location.href='recipe-detail.html?id=${recipe.id}'"
         >
         
@@ -73,6 +76,13 @@ const updateDOM = () => {
       
       `
     );
+    document
+      .querySelector('.recipe-list')
+      .addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          window.location.href = `recipe-detail.html?id=${recipe.id}`;
+        }
+      });
   });
 };
 

@@ -48,12 +48,16 @@
       const urlParams = new URLSearchParams(window.location.search);
       const recipeId = parseInt(urlParams.get('id'));
       const API_URL = `https://dummyjson.com/recipes/${recipeId}`;
+      const detailImg = document.getElementById('detail-image');
 
       axios(API_URL).then((r) => {
         const { data } = r;
         console.log(data);
         document.getElementById('detail-title').textContent = data.name;
-        document.getElementById('detail-image').src = data.image;
+        detailImg.src = data.image;
+        detailImg.alt = data.name;
+        detailImg.title = data.name;
+        console.log(detailImg.alt);
         document.getElementById('detail-time').textContent =
           data.cookTimeMinutes;
 
