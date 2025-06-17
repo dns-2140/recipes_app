@@ -149,16 +149,18 @@ h1 {
 }
 .pagination > * {
   border: 1px solid var(--color-gray);
-  background: transparant;
+  background: var(--color-light);
   border-radius: 50%;
   padding: 0.75rem;
   cursor: pointer;
   font-size: 0.75rem;
+  transition: 0.5s all;
 }
 
 .pagination > *:hover {
-  border: 1px solid var(--color-gray);
-  background-color: var(--color-light-gray);
+  border: 1px solid var(--color-orange);
+  background-color: var(--color-orange);
+  color: var(--color-light);
   border-radius: 50%;
   padding: 0.75rem;
   cursor: pointer;
@@ -177,4 +179,15 @@ h1 {
     width: 16rem;
     margin-bottom: 3rem;
   }
+}
+
+/* FOOTER */
+#footer {
+  background-color: var(--color-orange);
+  color: var(--color-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  font-size: 0.8rem;
 }
